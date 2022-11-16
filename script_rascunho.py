@@ -34,3 +34,9 @@ elif float(sys.argv[3]) < 0.49:
 else:
         print(sys.argv[3], 'a umidade está superior a ideal') #Precisa desligar irrigação
 #Loop para umidade
+
+#Declarando o sensor de iluminação
+sensor_luz = sys.argv[4]
+#Adotando a inguagem binário 1= on 0= off
+
+if int(sys.argv[4]) ==1: #Verificando se a luz está ligada  (começando ainda)
