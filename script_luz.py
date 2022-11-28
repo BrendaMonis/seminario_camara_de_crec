@@ -3,22 +3,23 @@ import sys
 
 #Declarando o sensor de iluminação
 sensor_luz = sys.argv[1]
+luz = ''
 horas = sys.argv[2]
+
 #Adotando a inguagem binário 1= on 0= off
 
-if int(sys.argv[1]) ==1: #Verificando se a luz está ligada  (começando ainda)
-        luz = True # a luz está ligada
-        luz_True = input("A luz deveria estar ligada?[s/n]")
-                if sys.argv[2] < 12:
-                        luz_True == "s" # A luz deveria estar ligada
-                else:
-                        luz_True == 'n' # A luz não deveria estar ligada
-                        print('desligar a luz')
+if int(sys.argv[1]) == 1: #Verificando se a luz está ligada  (começando ainda)
+        luz is True; print("A luz está ligada") # a luz está ligada
 else:
-        luz = False # a luz está apagada
-        luz_False = input("A luz deveria estar desligada?[s/n]")
-                if sys.argv[2] > 12:
-                        luz_False == "s" # A luz deveria estar desligada
-                else:
-                        luz_False == 'n' # A luz não deveria estar desligada
-                        print('acender a luz')
+        luz is  False; print('A luz está apagada') # a luz está apagada
+
+#Verificando se a luz deveria estar acesa ou apagada:
+
+if int(sys.argv[1]) == 1 and float(sys.argv[2]) < 12:
+        Print('A luz está ligada e deve ser continuar assim') # A luz deveria estar ligada
+elif int(sys.argv[1]) == 1 and float(sys.argv[2]) > 12:
+        print('A luz está ligada, porém deve ser desligada') # A luz não deveria estar ligada
+elif int(sys.argv[1]) == 0 and float(sys.argv[2]) > 12:
+        print('A luz está desligada e deve ser continuar assim') # A luz deveria estar desligada
+else:
+        print('A luz está desligada, porém deve ser ligada') # A luz não deveria estar desligada
