@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 import sys
+import datetime
 
 #Declarando o sensor de iluminação
 sensor_luz = sys.argv[1]
 luz = ''
-horas = sys.argv[2]
+data = datetime.datetime.now()
+horas = data.hour
+print('horário',horas)
 
 #Adotando a inguagem binário 1= on 0= off
 
@@ -15,11 +18,15 @@ else:
 
 #Verificando se a luz deveria estar acesa ou apagada:
 
-if int(sys.argv[1]) == 1 and float(sys.argv[2]) < 12:
-        Print('A luz está ligada e deve ser continuar assim') # A luz deveria estar ligada
-elif int(sys.argv[1]) == 1 and float(sys.argv[2]) > 12:
-        print('A luz está ligada, porém deve ser desligada') # A luz não deveria estar ligada
-elif int(sys.argv[1]) == 0 and float(sys.argv[2]) > 12:
-        print('A luz está desligada e deve ser continuar assim') # A luz deveria estar desligada
-else:
-        print('A luz está desligada, porém deve ser ligada') # A luz não deveria estar desligada
+if int(sys.argv[1]) == 1:
+        if float(horas) <= 6:
+                print('Manter a luz acesa') # A luz deve continuar ligada
+        elif float(horas) >= 18:
+                print('Manter a luz acesa') # A luz deve continuar ligada
+        else:
+                print('Desligar a luz') # A luz não deveria estar ligada
+elif int(horas) == 0:
+        if float(horas) > 6 and float(horas) < 18:
+                print('Manter a luz apagada') # A luz deve continuar desligada
+        else:
+                print('Acender a luz') # A luz não deveria estar desligada
