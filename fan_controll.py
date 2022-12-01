@@ -12,6 +12,9 @@ GPIO.setup(13, GPIO.OUT)	#Desumidificador
 sensor = adafruit_dht.DHT11(board.D14) #Pins arbitrários
 #GPIO.setup(15, GPIO.OUT)	#Irrigação
 #sensor_um_solo = #########(board.15)
+GPIO.setup(14, GPIO.OUT)        #Luz
+date = datetime.datetime.now()
+hour = data.hour
 
 while True:
 	try:
@@ -55,3 +58,21 @@ while True:
         	sensor.exit()
         	raise error
 	time.sleep(900.0 - asp) # - irrig
+             	if int(light) == 1: #light
+                        if float(hour) <= 6:
+                                GPIO.output(14 , GPIO.ON)
+                                time.sleep(20.0)
+                        elif float(hour) >= 18:
+                                GPIO.output(14 , GPIO.ON)
+                                time.sleep(20.0)
+                        else:
+                                GPIO.output(14 , GPIO.OFF)
+                else :
+                        if float(hour) > 6:
+                                GPIO.output(14 , GPIO.OFF)
+                                time.sleep(20.0)
+                        elif float(hour) < 18:
+                                GPIO.output(14 , GPIO.OFF)
+                                time.sleep(20.0)
+                        else:
+                                GPIO.output(14 , GPIO.ON)
