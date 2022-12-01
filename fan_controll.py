@@ -60,19 +60,19 @@ while True:
 	time.sleep(900.0 - asp) # - irrig
              	if int(light) == 1: #light
                         if float(hour) <= 6:
-                                GPIO.output(14 , GPIO.ON)
+                                GPIO.output(14 , GPIO.HIGH)
                                 time.sleep(20.0)
                         elif float(hour) >= 18:
-                                GPIO.output(14 , GPIO.ON)
+                                GPIO.output(14 , GPIO.HIGH)
                                 time.sleep(20.0)
                         else:
-                                GPIO.output(14 , GPIO.OFF)
+                                GPIO.output(14 , GPIO.LOW)
                 else :
                         if float(hour) > 6:
-                                GPIO.output(14 , GPIO.OFF)
+                                GPIO.output(14 , GPIO.LOW)
                                 time.sleep(20.0)
                         elif float(hour) < 18:
-                                GPIO.output(14 , GPIO.OFF)
+                                GPIO.output(14 , GPIO.LOW)
                                 time.sleep(20.0)
                         else:
-                                GPIO.output(14 , GPIO.ON)
+                                GPIO.output(14 , GPIO.HIGH)
